@@ -97,3 +97,33 @@ public void print() {
         System.out.println();
     }
 }
+public void solve() {
+    for (Cell[] row : grid)
+        for (Cell cell : row)
+            cell.visited = false;
+
+    dfs(entrance.x, entrance.y);
+}
+
+private boolean dfs(int x, int y) {
+    if (!inBounds(x, y)  grid[y][x].isWall  grid[y][x].visited)
+        return false;
+
+    grid[y][x].visited = true;
+
+    if (grid[y][x] == exit) {
+        grid[y][x].isPath = true;
+        return true;
+    }
+
+    for (int[] dir : new int[][]{{0, -1}, {0, 1}, {-1, 0}, {1, 0}}) {
+        int nx = x + dir[0];
+        int ny = y + dir[1];
+        if (dfs(nx, ny)) {
+            grid[y][x].isPath = true;
+            return true;
+        }
+    }
+
+    return false;
+}
