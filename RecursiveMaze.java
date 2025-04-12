@@ -81,3 +81,19 @@ public void setEntranceAndExit() {
     entrance.isWall = false;
     exit.isWall = false;
 }
+public void print() {
+    for (Cell[] row : grid) {
+        for (Cell cell : row) {
+            if (cell == entrance) {
+                System.out.print('E');
+            } else if (cell == exit) {
+                System.out.print('X');
+            } else if (cell.isPath) {
+                System.out.print('.');
+            } else {
+                System.out.print(cell.isWall ? '#' : ' ');
+            }
+        }
+        System.out.println();
+    }
+}
