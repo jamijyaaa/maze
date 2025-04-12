@@ -62,3 +62,14 @@ private void generateRecursive(int x, int y) {
         }
     }
 }
+class Cell {
+    int x, y;
+    boolean isWall = true;
+    boolean visited = false;
+    boolean isPath = false;
+
+    public Cell(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
