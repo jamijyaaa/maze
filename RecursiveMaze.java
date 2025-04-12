@@ -127,3 +127,16 @@ private boolean dfs(int x, int y) {
 
     return false;
 }
+private boolean inBounds(int x, int y) {
+    return x >= 0 && y >= 0 && x < width && y < height;
+}
+
+private void shuffleArray(int[] array) {
+    Random rand = new Random();
+    for (int i = array.length - 1; i > 0; i--) {
+        int j = rand.nextInt(i + 1);
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+}
