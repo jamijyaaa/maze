@@ -73,3 +73,11 @@ class Cell {
         this.y = y;
     }
 }
+private Cell entrance, exit;
+
+public void setEntranceAndExit() {
+    entrance = grid[1][0];
+    exit = grid[height - 2][width - 1];
+    entrance.isWall = false;
+    exit.isWall = false;
+}
